@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RovingRepairsAdmin</string>
+    <string name="BOOKEO_API_KEY">A9KTCENYKFC7UJ9XKYFXE41564PPF9JK15E53A1D0A5</string>
+    <string name="BOOKEO_API_KEY_TWO">AMRPTYEF9FC7UJ9XKYFXE41564PPF9JK15E53A1D0A5</string>
+    <string name="BOOKEO_SECRET_KEY">ndtknLQ1AFYOg38OBqU1FfYH7xMRLohJ</string>
+    <string name="BOOKEO_URL">https://api.bookeo.com/v2/</string>
 </resources>
