@@ -18,6 +18,22 @@
         </activity>
         <activity android:name=".UserProfileActivity"></activity>
         <activity android:name=".NewCustomerActivity"></activity>
+        <activity android:name=".SelectVehicleActivity">
+        </activity>
+        <activity android:name=".SelectYearActivity">
+        </activity>
+        <activity android:name=".SelectModelActivity">
+        </activity>
+        <activity android:name=".VehicleConfirmationActivity">
+        </activity>
+        <activity android:name=".IndividualVehicleActivity">
+        </activity>
+        <activity android:name=".NativeAppointmentActivity">
+        </activity>
+        <activity android:name=".DateTimeActivity">
+        </activity>
+        <activity android:name=".ConfirmAppointmentActivity">
+        </activity>
     </application>
 
 </manifest>

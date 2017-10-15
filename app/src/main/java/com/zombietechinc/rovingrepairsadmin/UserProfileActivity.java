@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
@@ -34,6 +36,8 @@ public class UserProfileActivity extends AppCompatActivity {
     TextView userNumberTV;
     TextView userAddressTV;
     boolean hasAppointment = false;
+    String vehicleKey;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +76,22 @@ public class UserProfileActivity extends AppCompatActivity {
                 (Vehicle.class, R.layout.vehicle_card, VehicleHolder.class, vehicleRef) {
 
             @Override
-            protected void populateViewHolder(VehicleHolder holder, Vehicle vehicle, int position) {
+            protected void populateViewHolder(VehicleHolder holder, final Vehicle vehicle, int position) {
                 holder.vehicleTV.setText(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel());
                 hasAppointment(vehicle);
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("Vehicle Touched: ", vehicle.getModel());
+                        vehicleKey = vehicle.getUniqueKey();
+                        String name = vehicle.getModel();
+                        Toast.makeText(UserProfileActivity.this, vehicleKey + " " + name, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UserProfileActivity.this, IndividualVehicleActivity.class);
+                        intent.putExtra("key", vehicleKey);
+                        intent.putExtra("id", userID);
+                        startActivity(intent);
+                    }
+                });
 
             }
         };
@@ -126,7 +143,7 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.top_menu, menu);
+        inflater.inflate(R.menu.profile_menu, menu);
         return true;
     }
 
@@ -135,7 +152,8 @@ public class UserProfileActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.addVehicle:
-                Intent intent = new Intent(UserProfileActivity.this, NewCustomerActivity.class);
+                Intent intent = new Intent(UserProfileActivity.this, SelectVehicleActivity.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
                 return true;
 
