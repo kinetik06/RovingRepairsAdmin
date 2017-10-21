@@ -64,9 +64,16 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
                                     intent.putExtra("userID", userID);
                                     startActivity(intent);
+
                                 }
                             });
-
+                            holder.addressTV.setText(user.getAddress());
+                            holder.addressTV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    
+                                }
+                            });
                         }
                     };
 

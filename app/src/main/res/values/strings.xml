@@ -40,4 +40,47 @@
         <item>Subaru</item>
         <item>Toyota</item>
     </string-array>
+
+    <string-array name="services_list">
+        <item>Brakes</item>
+        <item>Engine</item>
+        <item>Transmission</item>
+        <item>Suspension</item>
+        <item>A/C and Heating</item>
+    </string-array>
+
+    <string-array name="brakes_list">
+        <item>R &amp; R Front Brake Pads &amp; Rotors</item>
+        <item>R &amp; R Front &amp; Rear Brake Pads &amp; Rotors</item>
+        <item>R &amp; R Caliper</item>
+        <item>R &amp; R Rear Drums &amp; Brake Shoes</item>
+        <item>Other…</item>
+
+    </string-array>
+
+    <string-array name="engine_list">
+        <item>R &amp; R Spark Plugs</item>
+        <item>R &amp; R Spark Plugs &amp; Wires</item>
+        <item>R &amp; R Valve Cover Gasket(s)</item>
+        <item>R &amp; R Head Gasket</item>
+        <item>Oil Change</item>
+        <item>Other…</item>
+
+    </string-array>
+
+    <string-array name="transmission_list">
+        <item>R &amp; R Transmission Filter</item>
+        <item>R &amp; R Axle</item>
+        <item>Other…</item>
+
+    </string-array>
+
+    <string-array name="suspension_list">
+    <item>R &amp; R Spark Plugs</item>
+    <item>R &amp; R Spark Plugs &amp; Wires</item>
+    <item>R &amp; R Valve Cover Gasket(s)</item>
+    <item>R &amp; R Head Gasket</item>
+    <item>Oil Change</item>
+    <item>Other…</item>
+    </string-array>
 </resources>

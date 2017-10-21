@@ -16,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -397,5 +400,28 @@ public class IndividualVehicleActivity extends AppCompatActivity {
                 // Handle any errors
             }
         });*/
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.vehicle_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.addWorkOrder:
+                Intent intent = new Intent(IndividualVehicleActivity.this, NewWorkOrderActivity.class);
+                intent.putExtra("userID", userID);
+                startActivity(intent);
+                return true;
+
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

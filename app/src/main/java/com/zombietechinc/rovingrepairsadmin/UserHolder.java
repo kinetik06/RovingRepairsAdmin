@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class UserHolder extends RecyclerView.ViewHolder {
 
     TextView userNameTV;
-    TextView mileageTV;
+    TextView addressTV;
     TextView vinTV;
     TextView userNumberTV;
     View mView;
@@ -22,7 +22,7 @@ public class UserHolder extends RecyclerView.ViewHolder {
         super(itemView);
         mView = itemView;
         userNameTV = (TextView)itemView.findViewById(R.id.usernameTV);
-        //mileageTV = (TextView)itemView.findViewById(R.id.mileage_tv);
+        addressTV = (TextView)itemView.findViewById(R.id.useraddressTV);
         userNumberTV = (TextView) itemView.findViewById(R.id.usernumberTV);
         //vinTV =(TextView)itemView.findViewById(R.id.vin_tv);
     }
