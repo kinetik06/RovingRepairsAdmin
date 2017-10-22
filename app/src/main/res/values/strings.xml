@@ -47,6 +47,7 @@
         <item>Transmission</item>
         <item>Suspension</item>
         <item>A/C and Heating</item>
+        <item>Electrical</item>
     </string-array>
 
     <string-array name="brakes_list">
@@ -76,11 +77,23 @@
     </string-array>
 
     <string-array name="suspension_list">
-    <item>R &amp; R Spark Plugs</item>
-    <item>R &amp; R Spark Plugs &amp; Wires</item>
-    <item>R &amp; R Valve Cover Gasket(s)</item>
-    <item>R &amp; R Head Gasket</item>
-    <item>Oil Change</item>
+    <item>R &amp; R Ball Joint(s)</item>
+    <item>R &amp; R (CV) Axle(s)</item>
+    <item>R &amp; R Wheel Bearing</item>
+    <item>R &amp; R Tie Rod End(s)</item>
     <item>Other…</item>
     </string-array>
+
+    <string-array name="hvac_list">
+        <item>R &amp; R A/C Compressor</item>
+        <item>R &amp; R Heater Core</item>
+        <item>R &amp; R Radiator</item>
+        <item>R &amp; R Heater Hose</item>
+        <item>Other…</item>
+    </string-array>
+
+    <string-array name="electrical_list">
+        <item>Other…</item>
+    </string-array>
+
 </resources>

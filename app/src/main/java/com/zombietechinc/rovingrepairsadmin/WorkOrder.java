@@ -10,6 +10,7 @@ public class WorkOrder {
     String customerName;
     String customerNumber;
     String customerAddress;
+    String laborDescription;
     double totalPrice;
     double laborPrice;
     double partsPrice;
