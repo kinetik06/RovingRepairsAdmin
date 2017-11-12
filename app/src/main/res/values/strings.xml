@@ -77,11 +77,11 @@
     </string-array>
 
     <string-array name="suspension_list">
-    <item>R &amp; R Ball Joint(s)</item>
-    <item>R &amp; R (CV) Axle(s)</item>
-    <item>R &amp; R Wheel Bearing</item>
-    <item>R &amp; R Tie Rod End(s)</item>
-    <item>Other…</item>
+        <item>R &amp; R Ball Joint(s)</item>
+        <item>R &amp; R (CV) Axle(s)</item>
+        <item>R &amp; R Wheel Bearing</item>
+        <item>R &amp; R Tie Rod End(s)</item>
+        <item>Other…</item>
     </string-array>
 
     <string-array name="hvac_list">

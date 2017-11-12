@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".NewWorkOrderActivity">
         </activity>
+        <activity android:name=".AddPartsActivity">
+        </activity>
     </application>
 
 </manifest>

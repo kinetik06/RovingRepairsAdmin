@@ -1,6 +1,7 @@
 package com.zombietechinc.rovingrepairsadmin;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
     List <String> serviceSubList;
     List <String> workOrderItems = new ArrayList<>();
     String serviceSelected;
+    Button continueBtn;
 
     ArrayList<Job> jobList;
     RecyclerView mRecyclerView;
@@ -44,6 +46,7 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_work_order);
+        continueBtn = findViewById(R.id.continueBtn);
         mRecyclerView = (RecyclerView)findViewById(R.id.jobRV);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         serviceList = Arrays.asList(getResources().getStringArray(R.array.services_list));
@@ -88,6 +91,14 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
                 ArrayAdapter arrayAdapter = new ArrayAdapter(NewWorkOrderActivity.this, android.R.layout.simple_list_item_1, serviceSubList);
                 subServiceLV.setAdapter(arrayAdapter);
 
+            }
+        });
+
+        continueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewWorkOrderActivity.this, AddPartsActivity.class);
+                intent.pu
             }
         });
 
@@ -148,6 +159,7 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
         Log.d("Service & Price: ", name + String.valueOf(price));
         Job job = new Job(name, price);
         jobList.add(job);
+        Log.d("Job Info: ", job.getName() + String.valueOf(job.getPrice()));
         mAdapter.notifyDataSetChanged();
 
     }

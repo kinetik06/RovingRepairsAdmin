@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by User on 8/29/2017.
@@ -69,9 +70,15 @@ public class EnterPriceDialogFragment extends DialogFragment {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                price = Double.valueOf(String.valueOf(priceET.getText()));
-                mListener.onConfirmButtonClick(service, price);
-                dismiss();
+                String priceString = String.valueOf(priceET.getText());
+                if (priceString == null || priceString == "" || priceString.isEmpty()) {
+                    Toast.makeText(getActivity(), "Please enter a value", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    price = Double.valueOf(String.valueOf(priceET.getText()));
+                    mListener.onConfirmButtonClick(service, price);
+                    dismiss();
+                }
             }
         });
 
