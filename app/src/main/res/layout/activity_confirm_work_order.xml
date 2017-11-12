@@ -5,39 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zombietechinc.rovingrepairsadmin.AddPartsActivity"
-
+    tools:context="com.zombietechinc.rovingrepairsadmin.ConfirmWorkOrderActivity"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/nameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/addressTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/numberTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TextView" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/partET"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Enter Part Name"
-            android:inputType="textCapWords" />
-
-        <Button
-            android:id="@+id/add_part_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add Part" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
         android:weightSum="2">
@@ -53,10 +47,18 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/second_job_rv"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="150dp"
             >
 
         </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/totalLaborTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Labor"
+            android:gravity="right"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -68,9 +70,17 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="150dp"
             android:id="@+id/part_rv"
             />
+
+        <TextView
+            android:id="@+id/totalPartsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Parts"
+            android:gravity="right"/>
 
     </LinearLayout>
 
@@ -80,6 +90,5 @@
         android:layout_height="wrap_content"
 
         android:text="Continue" />
-
 
 </LinearLayout>

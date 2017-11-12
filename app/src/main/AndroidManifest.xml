@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.zombietechinc.rovingrepairsadmin">
+    package="com.zombietechinc.rovingrepairsadmin">
 
     <application
         android:allowBackup="true"
@@ -11,33 +11,24 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserProfileActivity"/>
-        <activity android:name=".NewCustomerActivity"/>
-        <activity android:name=".SelectVehicleActivity">
-        </activity>
-        <activity android:name=".SelectYearActivity">
-        </activity>
-        <activity android:name=".SelectModelActivity">
-        </activity>
-        <activity android:name=".VehicleConfirmationActivity">
-        </activity>
-        <activity android:name=".IndividualVehicleActivity">
-        </activity>
-        <activity android:name=".NativeAppointmentActivity">
-        </activity>
-        <activity android:name=".DateTimeActivity">
-        </activity>
-        <activity android:name=".ConfirmAppointmentActivity">
-        </activity>
-        <activity android:name=".NewWorkOrderActivity">
-        </activity>
-        <activity android:name=".AddPartsActivity">
-        </activity>
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".NewCustomerActivity" />
+        <activity android:name=".SelectVehicleActivity"></activity>
+        <activity android:name=".SelectYearActivity"></activity>
+        <activity android:name=".SelectModelActivity"></activity>
+        <activity android:name=".VehicleConfirmationActivity"></activity>
+        <activity android:name=".IndividualVehicleActivity"></activity>
+        <activity android:name=".NativeAppointmentActivity"></activity>
+        <activity android:name=".DateTimeActivity"></activity>
+        <activity android:name=".ConfirmAppointmentActivity"></activity>
+        <activity android:name=".NewWorkOrderActivity"></activity>
+        <activity android:name=".AddPartsActivity"></activity>
+        <activity android:name=".ConfirmWorkOrderActivity"></activity>
     </application>
 
 </manifest>

@@ -7,32 +7,32 @@ import android.os.Parcelable;
  * Created by marcus on 10/21/17.
  */
 
-public class Job implements Parcelable{
+public class Part implements Parcelable{
     String name;
     double price;
 
-    public Job(){}
+    public Part(){}
 
-    private Job (Parcel in){
+    private Part(Parcel in){
 
         name = in.readString();
         price = in.readDouble();
     }
 
-    public Job(String name, double price){
+    public Part(String name, double price){
         this.name = name;
         this.price = price;
     }
 
-    public static final Creator<Job> CREATOR = new Creator<Job>() {
+    public static final Creator<Part> CREATOR = new Creator<Part>() {
         @Override
-        public Job createFromParcel(Parcel in) {
-            return new Job(in);
+        public Part createFromParcel(Parcel in) {
+            return new Part(in);
         }
 
         @Override
-        public Job[] newArray(int size) {
-            return new Job[size];
+        public Part[] newArray(int size) {
+            return new Part[size];
         }
     };
 

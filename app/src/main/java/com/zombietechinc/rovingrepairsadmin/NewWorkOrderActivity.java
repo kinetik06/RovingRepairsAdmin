@@ -35,6 +35,7 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
     List <String> workOrderItems = new ArrayList<>();
     String serviceSelected;
     Button continueBtn;
+    String userID;
 
     ArrayList<Job> jobList;
     RecyclerView mRecyclerView;
@@ -46,6 +47,8 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_work_order);
+        Intent intent = getIntent();
+        userID = intent.getStringExtra("userID");
         continueBtn = findViewById(R.id.continueBtn);
         mRecyclerView = (RecyclerView)findViewById(R.id.jobRV);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -98,7 +101,9 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NewWorkOrderActivity.this, AddPartsActivity.class);
-                intent.pu
+                intent.putExtra("joblist", jobList);
+                intent.putExtra("userID", userID);
+                startActivity(intent);
             }
         });
 

@@ -18,6 +18,7 @@ public class WorkOrder {
     double laborPrice;
     double partsPrice;
     ArrayList<Job> jobList;
+    ArrayList<Part> partList;
 
 
 }
