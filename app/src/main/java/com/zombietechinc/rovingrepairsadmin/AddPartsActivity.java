@@ -28,6 +28,7 @@ public class AddPartsActivity extends AppCompatActivity implements EnterPriceDia
     private LinearLayoutManager partManager;
     Button continueBtn;
     String userID;
+    String vehicleKey;
 
 
 
@@ -38,6 +39,7 @@ public class AddPartsActivity extends AppCompatActivity implements EnterPriceDia
         setContentView(R.layout.activity_add_parts);
         Intent intent = getIntent();
         userID = intent.getStringExtra("userID");
+        vehicleKey = intent.getStringExtra("vehicleKey");
         jobList = getIntent().getParcelableArrayListExtra("joblist");
         addPartButton = findViewById(R.id.add_part_btn);
         continueBtn = findViewById(R.id.continueBtn);
@@ -72,6 +74,7 @@ public class AddPartsActivity extends AppCompatActivity implements EnterPriceDia
                 intent.putExtra("joblist", jobList);
                 intent.putExtra("partlist", partList);
                 intent.putExtra("userID", userID);
+                intent.putExtra("vehicleKey", vehicleKey);
                 startActivity(intent);
             }
         });

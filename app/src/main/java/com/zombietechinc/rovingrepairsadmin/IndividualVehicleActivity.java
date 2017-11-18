@@ -415,6 +415,7 @@ public class IndividualVehicleActivity extends AppCompatActivity {
             case R.id.addWorkOrder:
                 Intent intent = new Intent(IndividualVehicleActivity.this, NewWorkOrderActivity.class);
                 intent.putExtra("userID", userID);
+                intent.putExtra("vehicleKey", vehicleKey);
                 startActivity(intent);
                 return true;
 

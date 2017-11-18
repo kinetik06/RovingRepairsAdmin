@@ -8,12 +8,14 @@ import java.util.List;
  */
 
 public class WorkOrder {
+    Vehicle vehicle;
+    User user;
 
     String vehicleName;
     String customerName;
     String customerNumber;
     String customerAddress;
-    String laborDescription;
+    String notes;
     double totalPrice;
     double laborPrice;
     double partsPrice;

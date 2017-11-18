@@ -22,7 +22,9 @@ public class ConfirmWorkOrderActivity extends AppCompatActivity {
     ArrayList<Part> partList;
     public FirebaseDatabase mFirebaseDatabase;
     public DatabaseReference mDatabaseReference;
+    public DatabaseReference vehicleRef;
     String userID;
+    String vehicleKey;
     TextView nameTV;
     TextView addressTV;
     TextView numberTV;
@@ -36,19 +38,26 @@ public class ConfirmWorkOrderActivity extends AppCompatActivity {
     TextView totalLaborTV;
     double partTotal = 0;
     TextView totalPartsTV;
+    TextView totalPriceTV;
+    double totalPrice = 0;
+    String ymm = "";
+    TextView vehicleNameTV;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_work_order);
+        totalPriceTV = findViewById(R.id.totalPriceTV);
         nameTV = findViewById(R.id.nameTV);
         addressTV = findViewById(R.id.addressTV);
         numberTV =findViewById(R.id.numberTV);
+        vehicleNameTV = findViewById(R.id.vehicleNameTV);
         totalLaborTV = findViewById(R.id.totalLaborTV);
         totalPartsTV = findViewById(R.id.totalPartsTV);
         Intent intent = getIntent();
         userID = intent.getStringExtra("userID");
+        vehicleKey = intent.getStringExtra("vehicleKey");
         partList = getIntent().getParcelableArrayListExtra("partlist");
         jobList = getIntent().getParcelableArrayListExtra("joblist");
         Log.d("Part List Size: ", String.valueOf(partList.size()));
@@ -67,6 +76,7 @@ public class ConfirmWorkOrderActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference("users/" + userID);
+        vehicleRef = mFirebaseDatabase.getReference("vehicles/" + userID + "/" + vehicleKey);
         Log.d("User: ", userID);
 
         ValueEventListener valueEventListener = new ValueEventListener() {
@@ -89,6 +99,21 @@ public class ConfirmWorkOrderActivity extends AppCompatActivity {
 
         mDatabaseReference.addValueEventListener(valueEventListener);
 
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Vehicle vehicle = dataSnapshot.getValue(Vehicle.class);
+                ymm = vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel();
+                vehicleNameTV.setText(ymm);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        vehicleRef.addValueEventListener(eventListener);
+
         for (int i = 0; i < jobList.size(); i++) {
             Job job = jobList.get(i);
             jobTotal = jobTotal + job.getPrice();
@@ -104,5 +129,8 @@ public class ConfirmWorkOrderActivity extends AppCompatActivity {
 
         }
         totalPartsTV.setText("Parts Total: $" + String.valueOf(partTotal) + 0);
+
+        totalPrice = jobTotal + partTotal;
+        totalPriceTV.setText("Total: $" + String.valueOf(totalPrice) + 0);
     }
 }
