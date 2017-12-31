@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="100dp"
               android:background="@color/common_google_signin_btn_text_dark_disabled"
               android:orientation="horizontal"
-              android:weightSum="2"
+              android:weightSum="3"
     android:layout_marginBottom="10dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
@@ -18,38 +19,37 @@
             android:id="@+id/usernameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
 
             android:text="Name"
-
+            android:paddingTop="10dp"
             android:textSize="20sp"/>
 
-        <TextView
-            android:id="@+id/useraddressTV"
+    </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="right">
+
+        <ImageView
+            android:id="@+id/navigationIV"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Name"
 
-            android:textSize="20sp"/>
-    </LinearLayout>
+            app:srcCompat="@drawable/navigation" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1
+        <ImageView
+            android:id="@+id/phoneIV"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/phone_button_blue" />
 
-"
-        android:orientation="vertical">
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/usernumberTV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:text="Name"
-
-            android:textSize="20sp"/>
 
     </LinearLayout>
 
-</LinearLayout>
+
+

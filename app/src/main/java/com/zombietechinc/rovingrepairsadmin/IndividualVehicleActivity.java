@@ -77,9 +77,9 @@ public class IndividualVehicleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_vehicle);
-        vehicleIMG = (ImageView)findViewById(R.id.vehicle_iv);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
-        progressBar.setVisibility(View.INVISIBLE);
+        //vehicleIMG = (ImageView)findViewById(R.id.vehicle_iv);
+        //progressBar = (ProgressBar)findViewById(R.id.progressBar2);
+        //progressBar.setVisibility(View.INVISIBLE);
         mRecyclerView = (RecyclerView)findViewById(R.id.appointment_rv);
         ymmTV = (TextView)findViewById(R.id.ymm_tv);
         appointmentTV = (TextView)findViewById(R.id.appointment_tv);
@@ -87,13 +87,13 @@ public class IndividualVehicleActivity extends AppCompatActivity {
         vehicleKey = intent.getStringExtra("key");
         vehicleRef = storageRef.child("vehicles/" + vehicleKey + ".jpg");
         userID = intent.getStringExtra("id");
-        if (vehicleRef != null){
+       /* if (vehicleRef != null){
             try {
                 getVehiclePic();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference("vehicles/" + userID + "/" + vehicleKey);
@@ -117,7 +117,7 @@ public class IndividualVehicleActivity extends AppCompatActivity {
                     }
                 });
 
-                vehicleIMG.setOnClickListener(new View.OnClickListener() {
+                /*vehicleIMG.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         // Here, thisActivity is the current activity
@@ -154,7 +154,7 @@ public class IndividualVehicleActivity extends AppCompatActivity {
                         }
 
                     }
-                });
+                });*/
             }
 
             @Override
@@ -356,7 +356,7 @@ public class IndividualVehicleActivity extends AppCompatActivity {
             // permissions this app might request
         }
     }
-    public void getVehiclePic() throws IOException {
+/*    public void getVehiclePic() throws IOException {
 
         final File localFile = File.createTempFile("images", "jpg");
 
@@ -385,13 +385,13 @@ public class IndividualVehicleActivity extends AppCompatActivity {
             }
         });
 
-        /*vehicleRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        *//*vehicleRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 // Data for "images/island.jpg" is returns, use this as needed
-               *//* Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0, (int) ONE_MEGABYTE);
+               *//**//* Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0, (int) ONE_MEGABYTE);
                 vehicleIMG.setImageBitmap(bitmap);
-                Log.d("Bitmap set: ", bitmap.toString());*//*
+                Log.d("Bitmap set: ", bitmap.toString());*//**//*
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -399,8 +399,8 @@ public class IndividualVehicleActivity extends AppCompatActivity {
                 Log.d("Exception code: ", exception.toString());
                 // Handle any errors
             }
-        });*/
-    }
+        });*//*
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

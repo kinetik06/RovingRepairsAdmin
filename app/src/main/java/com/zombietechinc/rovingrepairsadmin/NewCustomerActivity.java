@@ -122,8 +122,11 @@ public class NewCustomerActivity extends AppCompatActivity {
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
+                                    }else {
+                                        Log.d("Error : ", "Customer not created");
                                     }
                                 }
+
                             });
 
 

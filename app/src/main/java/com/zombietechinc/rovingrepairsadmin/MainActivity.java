@@ -1,6 +1,7 @@
 package com.zombietechinc.rovingrepairsadmin;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.FirebaseApp;
@@ -18,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +33,13 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference appointmentRef = mDatabase.getReference("appointments");
     DatabaseReference vehicleRef = mDatabase.getReference("vehicles");
     DatabaseReference userRef = mDatabase.getReference("users");
+    Query query = mReference.child("users").orderByChild("lastName");
     RecyclerView mRecyclerView;
     FirebaseRecyclerAdapter mFirebaseRecyclerAdapter;
     LinearLayoutManager mLinearLayoutManager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 if (firebaseUser != null){
                     Log.d("User Signed in: ", firebaseUser.getDisplayName());
                     mFirebaseRecyclerAdapter = new FirebaseRecyclerAdapter<User, UserHolder>
-                            (User.class, R.layout.user_card, UserHolder.class, userRef) {
+                            (User.class, R.layout.user_card, UserHolder.class, mReference.child("users").orderByChild("lastName")) {
                         @Override
-                        protected void populateViewHolder(UserHolder holder, User user, final int position) {
-                            holder.userNameTV.setText(user.getName() + " " + user.getLastName());
-                            holder.userNumberTV.setText(user.getContactnumber());
+                        protected void populateViewHolder(final UserHolder holder, final User user, final int position) {
+                            holder.userNameTV.setText(user.getLastName() + ", " + user.getName());
+                            //holder.userNumberTV.setText(user.getContactnumber());
                             holder.userNameTV.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -67,13 +74,50 @@ public class MainActivity extends AppCompatActivity {
 
                                 }
                             });
-                            holder.addressTV.setText(user.getAddress());
-                            holder.addressTV.setOnClickListener(new View.OnClickListener() {
+                            //holder.addressTV.setText(user.getAddress());
+
+                            holder.phoneIV.setOnClickListener(new View.OnClickListener() {
                                 @Override
-                                public void onClick(View view) {
-                                    
+                                public void onClick(View v) {
+                                    Uri number = Uri.parse("tel:" + user.getContactnumber());
+                                    Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                                    startActivity(callIntent);
                                 }
                             });
+
+                            holder.navIV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + user.getAddress());
+                                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    mapIntent.setPackage("com.google.android.apps.maps");
+                                    startActivity(mapIntent);
+
+                                }
+                            });
+
+                            /*holder.addressTV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + holder.addressTV.getText().toString());
+                                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    mapIntent.setPackage("com.google.android.apps.maps");
+                                    startActivity(mapIntent);
+
+
+                                }
+                            });*/
+
+                            /*holder.userNumberTV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Uri number = Uri.parse("tel:" + holder.userNumberTV.getText().toString());
+                                    Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                                    startActivity(callIntent);
+                                }
+                            });*/
                         }
                     };
 

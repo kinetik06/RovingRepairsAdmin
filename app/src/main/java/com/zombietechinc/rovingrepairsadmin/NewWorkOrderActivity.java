@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
@@ -115,6 +116,7 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
 
         laborBtn = findViewById(R.id.addLaborbtn);
 
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         subServiceLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -141,10 +143,20 @@ public class NewWorkOrderActivity extends AppCompatActivity implements EnterPric
         laborBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView = new TextView(NewWorkOrderActivity.this);
-                mLinearLayout.addView(textView);
-                textView.setText(laborET.getText());
-                laborET.setText("");
+                if (laborET.getText().toString().isEmpty() || laborET.getText().toString() == "") {
+                    Toast.makeText(NewWorkOrderActivity.this, "Please enter a Labor Item!", Toast.LENGTH_SHORT).show();
+                }else {
+                    serviceSelected = laborET.getText().toString();
+                    showDialog();
+                    workOrderItems.add(serviceSelected);
+                    for (int j = 0; j < workOrderItems.size(); j++) {
+                        Log.d("Services added: ", workOrderItems.get(j));
+                    }
+
+                    Log.d("Size: ", String.valueOf(workOrderItems.size()));
+                    TextView textView = new TextView(NewWorkOrderActivity.this);
+                    textView.setText(serviceSelected);
+                }
             }
         });
     }

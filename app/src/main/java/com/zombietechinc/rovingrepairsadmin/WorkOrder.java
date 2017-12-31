@@ -8,19 +8,28 @@ import java.util.List;
  */
 
 public class WorkOrder {
-    Vehicle vehicle;
-    User user;
+    public Vehicle vehicle;
+    public User user;
+    public String notes;
+    public double totalPrice;
+    public double laborPrice;
+    public double partsPrice;
+    public ArrayList<Job> jobList;
+    public ArrayList<Part> partList;
 
-    String vehicleName;
-    String customerName;
-    String customerNumber;
-    String customerAddress;
-    String notes;
-    double totalPrice;
-    double laborPrice;
-    double partsPrice;
-    ArrayList<Job> jobList;
-    ArrayList<Part> partList;
+    public WorkOrder(){}
+
+    public WorkOrder(User user, Vehicle vehicle, String notes, ArrayList<Job> jobList, ArrayList<Part> partList,
+                      double partsPrice, double laborPrice, double totalPrice ) {
+        this.user = user;
+        this.vehicle = vehicle;
+        this.notes = notes;
+        this.jobList = jobList;
+        this.partList = partList;
+        this.partsPrice = partsPrice;
+        this.laborPrice = laborPrice;
+        this.totalPrice = totalPrice;
+    }
 
 
 }

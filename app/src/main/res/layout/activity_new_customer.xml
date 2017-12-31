@@ -15,7 +15,8 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:inputType="textCapSentences"
+         />
 
     <EditText
         android:id="@+id/lastnameET"
@@ -24,7 +25,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="Last Name"
-        android:inputType="textPersonName" />
+        android:inputType="textCapSentences" />
 
     <EditText
         android:id="@+id/emailET"
