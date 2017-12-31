@@ -19,6 +19,7 @@ public class WorkOrder {
 
     public WorkOrder(){}
 
+
     public WorkOrder(User user, Vehicle vehicle, String notes, ArrayList<Job> jobList, ArrayList<Part> partList,
                       double partsPrice, double laborPrice, double totalPrice ) {
         this.user = user;
